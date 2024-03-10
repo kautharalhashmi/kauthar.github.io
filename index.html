@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Menu</title>
+    <!-- Add your favicon image -->
+    <link rel="icon" type="image/png" href="images/a.png" />
+    <!-- font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: Madimi One, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+
+      h5 {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .menu-container {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .menu-bar {
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .menu-bar button {
+        font-family: Madimi One, sans-serif;
+        background-color: #ffffff;
+        color: #000000;
+        border: 2px solid #000;
+        border-radius: 20px;
+        padding: 10px 20px;
+        margin-right: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+      }
+
+      .menu-bar button.active {
+        background-color: #000000;
+        color: #ffffff;
+      }
+
+      .menu-bar button:focus,
+      .menu-bar button:hover {
+        background-color: #000000;
+        color: #ffffff;
+        border-color: #000;
+        outline: none;
+      }
+
+      .menu-item {
+        background-color: #fff;
+        border-radius: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .menu-item img {
+        width: 150px;
+        height: 150px;
+        border-radius: 18px;
+        margin-right: 20px;
+      }
+
+      .menu-item-content {
+        flex: 1;
+      }
+
+      .menu-item h2 {
+        font-size: 1.5em;
+        margin: 0;
+      }
+
+      .menu-item p {
+        font-size: 1em;
+        color: #555;
+        margin: 10px 0;
+      }
+
+      .menu-item span {
+        font-size: 1.2em;
+        color: #000000;
+        font-weight: bold;
+        display: block;
+      }
+
+      .menu-item.active {
+        transform: scale(1.05);
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="menu-container">
+      <h1>Our Menu</h1>
+      <div class="menu-bar">
+        <button
+          class="active"
+          onclick="filterMenu('all')"
+          onmouseover="hoverEffect(this)"
+          onmouseleave="removeHover(this)"
+        >
+          All
+        </button>
+        <button
+          onclick="filterMenu('breakfast')"
+          onmouseover="hoverEffect(this)"
+          onmouseleave="removeHover(this)"
+        >
+          Breakfast
+        </button>
+        <button
+          onclick="filterMenu('dinner')"
+          onmouseover="hoverEffect(this)"
+          onmouseleave="removeHover(this)"
+        >
+          Dinner
+        </button>
+        <button
+          onclick="filterMenu('sweets')"
+          onmouseover="hoverEffect(this)"
+          onmouseleave="removeHover(this)"
+        >
+          Sweets
+        </button>
+        <button
+          onclick="filterMenu('drinks')"
+          onmouseover="hoverEffect(this)"
+          onmouseleave="removeHover(this)"
+        >
+          Drinks
+        </button>
+      </div>
+
+      <div
+        class="menu-item breakfast"
+        style="animation: fadeInUp 0.5s ease-in-out"
+      >
+        <img src="images/1b.jpg" alt="Dish 1" />
+        <div class="menu-item-content">
+          <h2>Dish 1</h2>
+          <p>Description of Dish 1 - Breakfast</p>
+          <span>$10.99</span>
+        </div>
+      </div>
+      <div
+        class="menu-item breakfast"
+        style="animation: fadeInUp 0.5s ease-in-out"
+      >
+        <img src="images/2b.jpg" alt="Dish 2" />
+        <div class="menu-item-content">
+          <h2>Dish 2</h2>
+          <p>Description of Dish 2 - Breakfast</p>
+          <span>$10.99</span>
+        </div>
+      </div>
+      <div
+        class="menu-item breakfast"
+        style="animation: fadeInUp 0.5s ease-in-out"
+      >
+        <img src="images/b3.jpg" alt="Dish 3" />
+        <div class="menu-item-content">
+          <h2>Dish 3</h2>
+          <p>Description of Dish 3 - Breakfast</p>
+          <span>$10.99</span>
+        </div>
+      </div>
+      <div
+        class="menu-item breakfast"
+        style="animation: fadeInUp 0.5s ease-in-out"
+      >
+        <img src="images/b4.jpg" alt="Dish 4" />
+        <div class="menu-item-content">
+          <h2>Dish 4</h2>
+          <p>Description of Dish 4 - Breakfast</p>
+          <span>$10.99</span>
+        </div>
+      </div>
+      <div
+        class="menu-item breakfast"
+        style="animation: fadeInUp 0.5s ease-in-out"
+      >
+        <img src="images/b5.jpg" alt="Dish 5" />
+        <div class="menu-item-content">
+          <h2>Dish 5</h2>
+          <p>Description of Dish 5 - Breakfast</p>
+          <span>$10.99</span>
+        </div>
+      </div>
+      <div
+        class="menu-item dinner"
+        style="animation: fadeInUp 0.5s ease-in-out"
+      >
+        <img src="images/d1.jpg" alt="Dish 6" />
+        <div class="menu-item-content">
+          <h2>Dish 6</h2>
+          <p>Description of Dish 6 - Dinner</p>
+          <span>$8.99</span>
+        </div>
+      </div>
+      <div
+        class="menu-item sweets"
+        style="animation: fadeInUp 0.5s ease-in-out"
+      >
+        <img src="images/s1.jpg" alt="Dish 7" />
+        <div class="menu-item-content">
+          <h2>Dish 7</h2>
+          <p>Description of Dish 7 - Sweets</p>
+          <span>$12.99</span>
+        </div>
+      </div>
+      <div
+        class="menu-item sweets"
+        style="animation: fadeInUp 0.5s ease-in-out"
+      >
+        <img src="images/s2.jpg" alt="Dish 8" />
+        <div class="menu-item-content">
+          <h2>Dish 8</h2>
+          <p>Description of Dish 8 - Sweets</p>
+          <span>$12.99</span>
+        </div>
+      </div>
+      <div
+        class="menu-item sweets"
+        style="animation: fadeInUp 0.5s ease-in-out"
+      >
+        <img src="images/s3.jpg" alt="Dish 9" />
+        <div class="menu-item-content">
+          <h2>Dish 9</h2>
+          <p>Description of Dish 9 - Sweets</p>
+          <span>$12.99</span>
+        </div>
+      </div>
+      <div
+        class="menu-item drinks"
+        style="animation: fadeInUp 0.5s ease-in-out"
+      >
+        <img src="images/1j.jpg" alt="Dish 10" />
+        <div class="menu-item-content">
+          <h2>Dish 10</h2>
+          <p>Description of Dish 10 - Drinks</p>
+          <span>$5.99</span>
+        </div>
+      </div>
+      <div
+        class="menu-item drinks"
+        style="animation: fadeInUp 0.5s ease-in-out"
+      >
+        <img src="images/2j.jpg" alt="Dish 11" />
+        <div class="menu-item-content">
+          <h2>Dish 11</h2>
+          <p>Description of Dish 11 - Drinks</p>
+          <span>$5.99</span>
+        </div>
+      </div>
+      <div
+        class="menu-item drinks"
+        style="animation: fadeInUp 0.5s ease-in-out"
+      >
+        <img src="images/3j.jpg" alt="Dish 12" />
+        <div class="menu-item-content">
+          <h2>Dish 12</h2>
+          <p>Description of Dish 12 - Drinks</p>
+          <span>$5.99</span>
+        </div>
+      </div>
+      <!-- Add more menu items as needed -->
+    </div>
+    <h5>by kathiialhashmi@gmail.com</h5>
+
+    <script>
+      // Function to filter menu items
+      function filterMenu(category) {
+        const menuItems = document.querySelectorAll(".menu-item");
+        menuItems.forEach((item) => {
+          item.style.display = "none";
+          if (item.classList.contains(category) || category === "all") {
+            item.style.display = "flex";
+            item.style.animation = "fadeInUp 0.5s ease-in-out";
+          }
+        });
+
+        // Remove "active" class from all buttons
+        const buttons = document.querySelectorAll(".menu-bar button");
+        buttons.forEach((button) => {
+          button.classList.remove("active");
+        });
+
+        // Add "active" class to the clicked button
+        const activeButton = document.querySelector(
+          `.menu-bar button[data-category="${category}"]`
+        );
+        activeButton.classList.add("active");
+      }
+
+      // Function for hover effect
+      function hoverEffect(button) {
+        button.classList.add("active");
+      }
+
+      // Function to remove hover effect
+      function removeHover(button) {
+        button.classList.remove("active");
+      }
+    </script>
+  </body>
+</html>
